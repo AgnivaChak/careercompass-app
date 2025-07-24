@@ -41,10 +41,11 @@ Thumbs.db
 *.sqlite
 *.db
 
-# PDF or JD uploads
-*.pdf
-*.txt
+# Uploads
+resume.pdf
+job_description.txt
 *.docx
+
 
 # Any secret keys or credentials (make sure to use env vars or .env)
 .env
