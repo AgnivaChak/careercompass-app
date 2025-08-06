@@ -47,8 +47,9 @@ careercompass_project/
 └── .gitignore
 
 ```
+---
 
-##🔍 How It Works
+🔍 How It Works
 1. Resume Parsing
    -Reads PDF content using PyPDF2
    -Tokenizes, removes stopwords, extracts keywords
@@ -65,19 +66,19 @@ careercompass_project/
    -Compares missing JD skills with skills in a curated list of 250+ projects
    -Suggests relevant project ideas
 
+---
 
 
 
-
-##🌐 Deployment
+🌐 Deployment
 The app is deployed on Render at:
 
 🔗 https://careercompass-app.onrender.com
 
+---
 
 
-
-##🧠 Use Cases
+🧠 Use Cases
 
 • ✅ Freshers or students analyzing their resume before applying
 
@@ -88,9 +89,9 @@ The app is deployed on Render at:
 • 📈 Career counselors helping others optimize resumes
 
 
+---
 
-
-##🧩 Possible Future Enhancements
+🧩 Possible Future Enhancements
 
 • 🔐 Login system with history tracking
 
