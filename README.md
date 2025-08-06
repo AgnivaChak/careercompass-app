@@ -24,7 +24,7 @@ This project was designed as a **personal job-seeking assistant** to impress ATS
 | 🔍 Smart Project Recommender   | Suggests tailored projects from a JSON knowledge base                      |
 | 📈 Visual Insights              | Live heatmaps and gauge charts for visual understanding                    |
 
----
+
 
 ## 🧱 Project Architecture
 
@@ -46,7 +46,7 @@ careercompass_project/
 ├── README.md                 # You're reading it!
 └── .gitignore
 
-
+```
 
 🔍 How It Works
 1. Resume Parsing
