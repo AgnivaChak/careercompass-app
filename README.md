@@ -45,3 +45,61 @@ careercompass_project/
 ├── runtime.txt               # Python version pin
 ├── README.md                 # You're reading it!
 └── .gitignore
+
+
+
+🔍 How It Works
+1. Resume Parsing
+   -Reads PDF content using PyPDF2
+   -Tokenizes, removes stopwords, extracts keywords
+
+2. JD Parsing
+   -Similar NLP pipeline as resume parsing
+   -Extracts important required skills and terms
+
+3. TF-IDF + Cosine Similarity
+   -Converts both keyword lists into vectors
+   -Calculates match percentage
+
+4. Project Recommendations
+   -Compares missing JD skills with skills in a curated list of 250+ projects
+   -Suggests relevant project ideas
+
+
+
+
+
+🌐 Deployment
+The app is deployed on Render at:
+
+🔗 https://careercompass-app.onrender.com
+
+
+
+
+🧠 Use Cases
+
+• ✅ Freshers or students analyzing their resume before applying
+
+• 🎯 Mid-level devs matching with job descriptions
+
+• 📚 Project-based learning paths based on real-world JDs
+
+• 📈 Career counselors helping others optimize resumes
+
+
+
+
+🧩 Possible Future Enhancements
+
+• 🔐 Login system with history tracking
+
+• 🗂 Resume repository with versioning
+
+• 🧠 LLMs for advanced JD parsing and personalized recommendations
+
+• 🧪 Automated resume scoring with feedback
+
+• ☁️ Cloud storage for parsed data
+
+
