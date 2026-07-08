@@ -53,7 +53,7 @@ def compare_resume_and_jd(resume_keywords, resume_vector, jd_keywords, jd_vector
     matched_domain = set(matched_skills) & DOMAIN_KEYWORDS
     domain_bonus = len(matched_domain) * 2.0
     
-    match_percent = round((similarity_score * 100) + domain_bonus, 2)
+    match_percent = round(min(100.0, (similarity_score * 100) + domain_bonus), 2)
 
     return {
         "match_percent": match_percent,

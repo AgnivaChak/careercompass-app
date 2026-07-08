@@ -1,17 +1,8 @@
 import re
-import nltk
 import string
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
+from app.nlp_resources import get_stop_words, lemmatize_words, tokenize_words
 
-# Download once at startup
-nltk.download('punkt')
-nltk.download('punkt_tab')
-nltk.download('stopwords')
-nltk.download('wordnet')
-
-stop_words = set(stopwords.words('english'))
-lemmatizer = WordNetLemmatizer()
+stop_words = get_stop_words()
 
 # Domain word bank (prioritized keywords)
 DOMAIN_WORD_BANK = {
@@ -74,8 +65,8 @@ def clean_text(text):
 
 def extract_keywords(text):
     cleaned = clean_text(text)
-    tokens = nltk.word_tokenize(cleaned)
-    filtered = [lemmatizer.lemmatize(word) for word in tokens if word.isalnum() and word not in stop_words]
+    tokens = tokenize_words(cleaned)
+    filtered = lemmatize_words([word for word in tokens if word.isalnum() and word not in stop_words])
     
     # Prioritize domain-specific keywords
     domain_keywords = [word for word in filtered if word in PRIORITY_KEYWORDS]
