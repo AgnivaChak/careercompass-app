@@ -1,8 +1,23 @@
 import json
+import re
+
 
 def load_project_ideas(json_path="assets/project_ideas.json"):
     with open(json_path, "r", encoding="utf-8") as f:
         return json.load(f)
+
+
+def _keyword_matches(keywords, tokens):
+    """Return True if any project keyword appears in the token list."""
+    token_set = set(tokens)
+    token_text = " ".join(tokens)
+    for kw in keywords:
+        if kw in token_set:
+            return True
+        if re.search(r"\b" + re.escape(kw) + r"\b", token_text):
+            return True
+    return False
+
 
 def recommend_projects(jd_keywords, resume_keywords, ideas):
     aligned_projects = []
@@ -14,8 +29,8 @@ def recommend_projects(jd_keywords, resume_keywords, ideas):
         keywords = [kw.lower() for kw in idea.get("keywords", [])]
 
         # Flags
-        matches_resume = any(kw in resume_keywords for kw in keywords)
-        matches_jd = any(kw in jd_keywords for kw in keywords)
+        matches_resume = _keyword_matches(keywords, resume_keywords)
+        matches_jd = _keyword_matches(keywords, jd_keywords)
 
         project_summary = {
             "project_title": project_title,  # Ensure key is consistent

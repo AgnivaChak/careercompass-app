@@ -2,9 +2,8 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from sklearn.feature_extraction.text import TfidfVectorizer
-from app.utils import extract_keywords
-
 nltk.download("punkt")
+nltk.download("punkt_tab")
 nltk.download("stopwords")
 
 stop_words = set(stopwords.words("english"))

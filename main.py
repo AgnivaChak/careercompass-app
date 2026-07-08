@@ -3,8 +3,6 @@ from app import resume_parser, jd_parser, matcher, recommender
 import tempfile
 import os
 from sklearn.feature_extraction.text import TfidfVectorizer
-import matplotlib.pyplot as plt
-import seaborn as sns
 import plotly.graph_objects as go
 import plotly.figure_factory as ff
 
@@ -134,6 +132,7 @@ if st.button("\U0001F50D Analyze", key="analyze_button"):
             st.error(f"\u26A0\ufe0f Error during processing: {str(e)}")
 
         finally:
-            os.remove(temp_resume_path)
+            if os.path.exists(temp_resume_path):
+                os.remove(temp_resume_path)
     else:
         st.warning("Please upload both a resume and job description.")

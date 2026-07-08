@@ -1,6 +1,4 @@
-from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-import numpy as np
 
 # ✅ Expanded Domain Keyword Bank for Better Weighting
 DOMAIN_KEYWORDS = set([
@@ -47,23 +45,7 @@ DOMAIN_KEYWORDS = set([
     "communication", "leadership", "problem solving", "collaboration", "teamwork"
 ])
 
-def _calculate_weighted_match(resume_keywords, jd_keywords):
-    """
-    Custom weighted overlap score prioritizing domain-specific keywords.
-    """
-    matched = set(resume_keywords).intersection(set(jd_keywords))
-    matched_domain = matched.intersection(DOMAIN_KEYWORDS)
-
-    base_score = len(matched)
-    domain_bonus = len(matched_domain) * 1.5  # Domain skills get higher weight
-
-    total_possible = len(set(jd_keywords)) + 1e-5  # avoid division by zero
-    match_percent = ((base_score + domain_bonus) / total_possible) * 100
-    return round(match_percent, 2), list(matched), list(set(jd_keywords) - set(resume_keywords))
-
 def compare_resume_and_jd(resume_keywords, resume_vector, jd_keywords, jd_vector):
-    from sklearn.metrics.pairwise import cosine_similarity
-
     matched_skills = list(set(resume_keywords).intersection(set(jd_keywords)))
     missing_skills = list(set(jd_keywords) - set(resume_keywords))
     similarity_score = float(cosine_similarity([resume_vector], [jd_vector])[0][0])
